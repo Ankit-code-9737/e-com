@@ -13,12 +13,12 @@ const CartPage = () => {
 
   return (
     <div>
-      <h1>Cart Page</h1>
+      <h1 className="text-center mb-3">Cart Page</h1>
       <ul>
         {cartItems.map((item) => (
-          <li key={item.id}>
+          <li className="product" key={item.id}>
             {item.name} - ${item.price}
-            <button onClick={() => handleRemoveFromCart(item)}>
+            <button className="mt-3" onClick={() => handleRemoveFromCart(item)}>
               Remove from Cart
             </button>
           </li>

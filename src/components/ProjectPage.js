@@ -13,7 +13,7 @@ const ProjectPage = () => {
 
   return (
     <div>
-      <h1>Project Page</h1>
+      <h1 className="text-center">Project Page</h1>
       <ProductList onAddToCart={handleAddToCart} />
     </div>
   );

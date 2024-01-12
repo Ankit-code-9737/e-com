@@ -7,7 +7,63 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --text-color: #005656;
+  --borderCcolor: #005656;
+  --bg-color: #c4ffff;
+}
+
+nav {
+  width: 100%;
+  justify-content: center;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 20px;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 50px;
+
+}
+
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.product {
+  display: grid;
+  background: var(--bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 26px;
+}
+
+button {
+  border: none;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: solid 1px var(--borderCcolor);
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.SuccessMsg {
+  background-color: green;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, -20px);
+  transition: 0.5s;
+  font-size: 18px;
 }
