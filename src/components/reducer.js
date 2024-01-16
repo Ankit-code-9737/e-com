@@ -1,6 +1,7 @@
 const initialState = {
   rootColor: "#000",
   rootBgColor: "#3d3d3d",
+  rootBodyColor: "#fff",
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -10,6 +11,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         rootColor: action.payload,
         rootBgColor: action.payload,
+        rootBodyColor: action.payload,
       };
     default:
       return state;

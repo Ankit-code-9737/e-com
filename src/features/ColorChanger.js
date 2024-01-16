@@ -1,7 +1,7 @@
 // ColorChanger.js
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setRootColor, SetrootBgColor } from "./action";
+import { setRootColor, SetrootBgColor, SetBodyColor } from "./action";
 
 const ColorChanger = () => {
   const dispatch = useDispatch();
@@ -28,8 +28,16 @@ const ColorChanger = () => {
     );
   };
 
+  // Body color
+  const rootBodyColor = useSelector((state) => state.rootBodyColor);
+  const bodyColorChange = (e) => {
+    const color = e.target.value;
+    dispatch(SetBodyColor(color));
+    document.documentElement.style.setProperty("--body-color", e.target.value);
+  };
+
   return (
-    <div className="colorCBg">
+    <div className="colorCBg text-center">
       <label>
         <h6>Text Color:</h6>
         <input type="color" value={rootColor} onChange={handleColorChange} />
@@ -41,6 +49,10 @@ const ColorChanger = () => {
           value={rootBgColor}
           onChange={handleBgColorChange}
         />
+      </label>
+      <label>
+        <h6>Body Color:</h6>
+        <input type="color" value={rootBodyColor} onChange={bodyColorChange} />
       </label>
 
       {/* <div style={{ color: rootColor }}>

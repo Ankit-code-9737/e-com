@@ -14,6 +14,11 @@ body {
 
   --primary-color: #000;
   --mainbg-color: #c4ffff;
+  --body-color: #fff;
+}
+
+body {
+  background-color: var(--body-color);
 }
 
 nav {
@@ -90,4 +95,8 @@ h6 {
   height: 60px;
   border: none;
   border-radius: 8px;
+}
+
+.colorCBg input::-webkit-color-swatch {
+  border: solid 1px var(--stokeColor);
 }
