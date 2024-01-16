@@ -1,70 +1,54 @@
-import React, { useState, useEffect } from "react";
+// ColorChanger.js
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setRootColor, SetrootBgColor } from "./action";
 
-const ColorChangerS = ({ children }) => {
-  const [backgroundColor, setBackgroundColor] = useState(
-    () => localStorage.getItem("backgroundColor") || "#ffffff"
-  );
-  const [textColor, setTextColor] = useState(
-    () => localStorage.getItem("textColor") || "#000000"
-  );
+const ColorChanger = () => {
+  const dispatch = useDispatch();
 
+  // text color
+  const rootColor = useSelector((state) => state.rootColor);
   const handleColorChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === "backgroundColor") {
-      setBackgroundColor(value);
-      localStorage.setItem("backgroundColor", value);
-    } else if (name === "textColor") {
-      setTextColor(value);
-      localStorage.setItem("textColor", value);
-    }
+    const color = e.target.value;
+    dispatch(setRootColor(color));
+    document.documentElement.style.setProperty(
+      "--primary-color",
+      e.target.value
+    );
   };
 
-  const styles = {
-    backgroundColor,
-    color: textColor,
-    padding: "20px",
-    margin: "10px",
+  // Bg color
+  const rootBgColor = useSelector((state) => state.rootBgColor);
+  const handleBgColorChange = (e) => {
+    const color = e.target.value;
+    dispatch(SetrootBgColor(color));
+    document.documentElement.style.setProperty(
+      "--mainbg-color",
+      e.target.value
+    );
   };
-
-  useEffect(() => {
-    const savedBackgroundColor = localStorage.getItem("backgroundColor");
-    const savedTextColor = localStorage.getItem("textColor");
-
-    if (savedBackgroundColor) {
-      setBackgroundColor(savedBackgroundColor);
-    }
-
-    if (savedTextColor) {
-      setTextColor(savedTextColor);
-    }
-  }, []);
 
   return (
-    <div>
+    <div className="colorCBg">
       <label>
-        Background Color:
+        <h6>Text Color:</h6>
+        <input type="color" value={rootColor} onChange={handleColorChange} />
+      </label>
+      <label>
+        <h6>Backgroung Color:</h6>
         <input
           type="color"
-          name="backgroundColor"
-          value={backgroundColor}
-          onChange={handleColorChange}
+          value={rootBgColor}
+          onChange={handleBgColorChange}
         />
       </label>
 
-      <label>
-        Text Color:
-        <input
-          type="color"
-          name="textColor"
-          value={textColor}
-          onChange={handleColorChange}
-        />
-      </label>
-
-      <div style={styles}>{children}</div>
+      {/* <div style={{ color: rootColor }}>
+        <h1>This is a heading</h1>
+        <p>This is some text.</p>
+      </div> */}
     </div>
   );
 };
 
-export default ColorChangerS;
+export default ColorChanger;

@@ -11,12 +11,15 @@ body {
   --text-color: #005656;
   --borderCcolor: #005656;
   --bg-color: #c4ffff;
+
+  --primary-color: #000;
+  --mainbg-color: #3d3d3d;
 }
 
 nav {
   width: 100%;
   justify-content: center;
-  background-color: var(--bg-color);
+  background-color: var(--mainbg-color);
   margin: 0;
   padding: 20px;
 }
@@ -33,7 +36,8 @@ ul {
 a {
   text-decoration: none;
   font-size: 18px;
-  color: var(--text-color);
+  /* color: var(--text-color); */
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -66,4 +70,24 @@ button {
   transform: translate(-50%, -20px);
   transition: 0.5s;
   font-size: 18px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-color);
+}
+
+.colorCBg label {
+  width: 150px;
+}
+
+.colorCBg input {
+  width: 100px;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
 }
