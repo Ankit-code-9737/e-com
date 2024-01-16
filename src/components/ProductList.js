@@ -28,9 +28,9 @@ const ProductList = ({ onAddToCart }) => {
   return (
     <div>
       <h2 className="text-center mt-3 mb-5">Product List</h2>
-      <ul>
+      <ul className="d-block d-sm-flex ps-0">
         {products.map((product) => (
-          <li className="product" key={product.id}>
+          <li className="product mb-2" key={product.id}>
             {product.name} - ${product.price}
             <button
               className="mt-3"
