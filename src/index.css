@@ -35,7 +35,7 @@ ul {
   justify-content: center;
   list-style: none;
   gap: 50px;
-
+  padding-left: 0;
 }
 
 a {
